@@ -26,11 +26,22 @@ exports.getLog = (req, res, next) => {
 
 //create log
 exports.createLog = (req, res, next) => {
-  const name = req.body.name;
-  const email = req.body.email;
+  const weather = req.body.weather;
+  const pressure = req.body.pressure;
+  const height = req.body.height;
+  const co2 = req.body.co2;
+  const tvoc = req.body.tvoc;
+  const uv = req.body.uv;
+  const gps = req.body.gps;
+
   Log.create({
-    name: name,
-    email: email,
+    weather: weather,
+    pressure: pressure,
+    height: height,
+    co2: co2,
+    tvoc: tvoc,
+    uv: uv,
+    gps: gps,
   })
     .then((result) => {
       console.log("Created Log");
@@ -47,15 +58,25 @@ exports.createLog = (req, res, next) => {
 //update log
 exports.updateLog = (req, res, next) => {
   const logId = req.params.logId;
-  const updatedName = req.body.name;
-  const updatedEmail = req.body.email;
+  const updatedWeather = req.body.weather;
+  const updatedPressure = req.body.pressure;
+  const updatedHeight = req.body.height;
+  const updatedCo2 = req.body.co2;
+  const updatedTvoc = req.body.tvoc;
+  const updatedUv = req.body.uv;
+  const updatedGps = req.body.gps;
   Log.findByPk(logId)
     .then((log) => {
       if (!log) {
         return res.status(404).json({ message: "Log not found!" });
       }
-      log.name = updatedName;
-      log.email = updatedEmail;
+      log.weather = updatedWeather;
+      log.pressure = updatedPressure;
+      log.height = updatedHeight;
+      log.co2 = updatedCo2;
+      log.tvoc = updatedTvoc;
+      log.uv = updatedUv;
+      log.gps = updatedGps;
       return log.save();
     })
     .then((result) => {

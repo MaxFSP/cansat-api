@@ -33,7 +33,7 @@ const Log = db.define("log", {
     allowNull: false,
   },
   gps: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
 });
