@@ -9,27 +9,27 @@ const Log = db.define("log", {
     primaryKey: true,
   },
   weather: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DOUBLE,
     allowNull: false,
   },
   pressure: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DOUBLE,
     allowNull: false,
   },
   height: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DOUBLE,
     allowNull: false,
   },
   co2: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DOUBLE,
     allowNull: false,
   },
   tvoc: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DOUBLE,
     allowNull: false,
   },
   uv: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DOUBLE,
     allowNull: false,
   },
   gps: {
